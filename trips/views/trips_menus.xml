@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="trips_dashboard" name="Trips">
+        <menuitem id='trips_app_menu' name='Dashboard'>
+            <menuitem id='trips_all' action='trips_all_action' />
+        </menuitem>
+    </menuitem>
+</odoo>
