@@ -2,7 +2,7 @@
 <odoo>
 <record id="trips_all_action" model="ir.actions.act_window">
     <field name="name">All Trips</field>
-    <field name="res_model">trips</field>
+    <field name="res_model">trip</field>
     <field name="view_mode">tree,form</field>
 </record>
 </odoo>

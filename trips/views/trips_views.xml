@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Trips Tree View -->
+    <record id="trips_tree_view" model="ir.ui.view">
+        <field name="name">trips.tree.view</field>
+        <field name="model">trip</field>
+        <field name="arch" type="xml">
+            <tree string="Trips Tree View">
+                <field name="trip_id" string="Trip ID" />
+                <field name="trip_name" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="organizer_id" />
+                <field name="status" />
+                <field name="trip_type" />
+                <field name="travel_mode" />
+                <field name="budget" optional="hide" />
+                <!-- <field name="tag_ids" widget="many2many_tags"/> -->
+            </tree>
+        </field>
+    </record>
+    <!-- Trips Form View -->
+    <record id="trips_form_view" model="ir.ui.view">
+        <field name="name">trips.form.view</field>
+        <field name="model">trip</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Plan" />
+                    <button string="Cancel" />
+                    <field name="status" widget="statusbar" />
+                </header>
+                <sheet>
+                    <h1 class="mb16">
+                        <field name="trip_name" placeholder="e.g. Office Trip" />
+                    </h1>
+                    <h2 class="mb32">
+                        <field name="trip_id" string="Trip ID" />
+                    </h2>
+                    <group col="2">
+                        <group>
+                            <field name="trip_type" widget="selection" placeholder="Select a trip type" />
+                            <field name="start_date" />
+                        </group>
+                        <group>
+                            <field name="travel_mode" />
+                            <field name="end_date" />
+                        </group>
+                        <group>
+                            <field name="from_location_id" />
+                            <field name="to_location_id" />
+                        </group>
+                        <group>
+                            <!-- <field name="tags_ids" /> -->
+                            <field name="budget" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <field name="details"/>
+                                <field name="organizer_id"/>
+                                <field name="travel_days"/>
+                                <field name="location_id"/>
+                            </group>
+                        </page>
+                        <page string="Other Info">
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
