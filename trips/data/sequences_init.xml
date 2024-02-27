@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sequence_trip_id" model="ir.sequence">
+            <field name="name">Trip ID Sequence</field>
+            <field name="code">trip.trip_id</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">TRP%(year)s%(month)s%(day)s/</field>
+            <field name="suffix">/ODOO</field>
+            <field name="number_increment">1</field>
+            <field name="number_next_actual">1</field>
+        </record>
+    </data>
+</odoo>

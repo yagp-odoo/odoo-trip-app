@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_trips,access_trips,model_trips,base.group_user,1,1,1,1
+access_trip_user,access_trip,model_trip,base.group_user,1,1,1,1
+access_trip_location_user,access_trip_location,model_trip_location,base.group_user,1,1,1,1
