@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
         <record id="sequence_trip_id" model="ir.sequence">
             <field name="name">Trip ID Sequence</field>
             <field name="code">trip.trip_id</field>

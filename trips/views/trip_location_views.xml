@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="trip_location_tree_view" model="ir.ui.view">
+        <field name="name">trip.location.tree.view</field>
+        <field name="model">trip.location</field>
+        <field name="arch" type="xml">
+            <tree string="Trips Tree View">
+                <field name="location_id" optional="hide"/>
+                <field name="location_name" />
+                <field name="cost_per_day" />
+                <field name="address" />
+                <field name="loc_website" />
+            </tree>
+        </field>
+    </record>
+    <!-- Trip Location Form View -->
+    <record id="trip_loaction_form_view" model="ir.ui.view">
+        <field name="name">trip.location.form.view</field>
+        <field name="model">trip.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1 class="mb16">
+                        <field name="location_name" placeholder="e.g. Gandhinagar" />
+                    </h1>
+                    <h2 class="mb32">
+                        <field name="location_id" placeholder="Location ID" />
+                    </h2>
+                    <group col="1">
+                        <group>
+                            <field name="address" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Information">
+                            <group>
+                                <field name="loc_description"/>
+                                <field name="loc_website"/>
+                            </group>
+                        </page>
+                        <page string="Weather">
+                            <group>
+                                <field name="loc_temperature" />
+                                <field name="loc_conditions" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

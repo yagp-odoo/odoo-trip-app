@@ -4,5 +4,8 @@
         <menuitem id='trips_app_menu' name='Dashboard'>
             <menuitem id='trips_all' action='trips_all_action' />
         </menuitem>
+        <menuitem id='trips_app_location' name='Destinations'>
+            <menuitem id='trip_locations' action='trip_location_action' />
+        </menuitem>
     </menuitem>
 </odoo>
