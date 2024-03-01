@@ -1,6 +1,4 @@
 from odoo import models,fields,api,exceptions
-from dateutil import relativedelta
-from datetime import datetime
 
 class Trips(models.Model):
     _name = "trip"
@@ -11,8 +9,8 @@ class Trips(models.Model):
     trip_name = fields.Char(string='Trip Name', required=True)
     start_date = fields.Date(string='Start Date')
     end_date = fields.Date(string='End Date')
-    organizer_id = fields.Many2one('res.partner', string='Organizer')
-    location_ids = fields.Char(string='Location (Many2one)', help="Locations Includes in your Trip.")
+    organizer_id = fields.Many2one('organizer', string='Organizer')
+    location_ids = fields.Many2one('trip.location', string='Locations', help="Locations Includes in your Trip.")
     details = fields.Text(string='Trip Details')
     from_location_id = fields.Many2one('trip.location',string='From', help="Trip starting Location")
     to_location_id = fields.Many2one('trip.location',string='To', help="Trip ending Location")
@@ -24,7 +22,12 @@ class Trips(models.Model):
             ('completed', 'Completed'),
             ('canceled', 'Canceled'),
         ], 
-        string='Status', default='draft')
+        string='Status',
+        default='draft',
+        store=True,
+        compute='_compute_status',
+        required=True
+        )
     accident = fields.Boolean(string='Accident')
     trip_type = fields.Selection(
         selection=[
@@ -45,11 +48,25 @@ class Trips(models.Model):
     # tag_ids = fields.Many2many('estate.property.tag', string="Tags")
     travel_days = fields.Integer(compute='_compute_travel_days', string='Travel Days', store=True)
 
+    # Compute Status based on Start and End Date
+    @api.depends('start_date', 'end_date')
+    def _compute_status(self):
+        for trip in self:
+            if not trip.start_date or not trip.end_date:
+                trip.status = 'draft'
+            elif fields.Date.today() < trip.start_date:
+                trip.status = 'planned'
+            elif fields.Date.today() > trip.end_date:
+                trip.status = 'completed'
+            else:
+                trip.status = 'ongoing'
+
+    # Compute Travel Days
     @api.depends('start_date', 'end_date')
     def _compute_travel_days(self):
         for record in self:
             if record.start_date and record.end_date:
-                delta = relativedelta.relativedelta(record.end_date,record.start_date)
+                delta = record.end_date - record.start_date
                 record.travel_days = delta.days
             else:
                 record.travel_days = 0

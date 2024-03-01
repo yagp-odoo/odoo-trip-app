@@ -4,10 +4,16 @@
         <field name="name">All Trips</field>
         <field name="res_model">trip</field>
         <field name="view_mode">tree,kanban,form</field>
+
     </record>
     <record id="trip_location_action" model="ir.actions.act_window">
         <field name="name">Locations</field>
         <field name="res_model">trip.location</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="organizer_action" model="ir.actions.act_window">
+        <field name="name">Organizers</field>
+        <field name="res_model">organizer</field>
         <field name="view_mode">tree,form</field>
     </record>
 </odoo>

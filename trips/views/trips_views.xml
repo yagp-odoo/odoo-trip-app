@@ -6,7 +6,7 @@
         <field name="model">trip</field>
         <field name="arch" type="xml">
             <tree string="Trips Tree View">
-                <field name="trip_id" string="Trip ID" />
+                <field name="trip_id" string="Trip ID" optional="hide" />
                 <field name="trip_name" />
                 <field name="start_date" />
                 <field name="end_date" />
@@ -17,6 +17,34 @@
                 <field name="budget" optional="hide" />
                 <!-- <field name="tag_ids" widget="many2many_tags"/> -->
             </tree>
+        </field>
+    </record>
+    <!-- Properties Search View -->
+    <record id="trip_search_view" model="ir.ui.view">
+        <field name="name">trip.search.view</field>
+        <field name="model">trip</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="trip_id" />
+                <field name="trip_name" />
+                <!-- <field name="start_date" />
+                <field name="end_date" /> -->
+                <field name="organizer_id" />
+                <!-- <field name="status" /> -->
+                <field name="trip_type" />
+                <field name="travel_mode" />
+                <field name="budget" optional="hide" />
+                <separator/>
+                <!-- <filter string="Planned" name="planned" domain="[('status','in',['planned'])]" />
+                <filter string="Ongoing" name="ongoing" domain="[('status','in',['ongoing'])]"/>
+                <filter string="Completed" name="completed" domain="[('status','in',['completed'])]"/>
+                <filter string="Canceled" name="canceled" domain="[('status','in',['canceled'])]"/> -->
+                <separator/>
+                <group string="Group By">
+                    <filter string="Trip Type" name="trip_type" context="{'group_by':'trip_type', 'residual_visible':True}"/>
+                    <filter string="Travel Mode" name="travel_mode" context="{'group_by':'travel_mode', 'residual_visible':True}"/>
+                </group>
+            </search>
         </field>
     </record>
     <!-- Trips Form View -->
@@ -41,10 +69,10 @@
                     <group col="2">
                         <group>
                             <field name="trip_type" widget="selection" placeholder="Select a trip type" />
-                            <field name="start_date" />
+                            <field name="travel_mode" />
                         </group>
                         <group>
-                            <field name="travel_mode" />
+                            <field name="start_date" />
                             <field name="end_date" />
                         </group>
                         <group>
@@ -75,42 +103,43 @@
     </record>
     <!-- Trips Kanban View -->
     <record id="trip_kanban_view" model="ir.ui.view">
-        <field name="name">trip.view.kanban</field>
-        <field name="model">trip</field>
-        <field name="arch" type="xml">
-            <kanban default_group_by="status" create="true">
-                <field name="start_date" />
-                <field name="end_date" />
-                <field name="travel_mode" />
-                <field name="trip_type" />
-                <field name="budget" />
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click">
-                            <strong>
-                                <field name="trip_name" />
-                            </strong>
-                            <div>
-                                Start Date: <field name="start_date" />
-                            </div>
-                            <div>
-                                End Date: <field name="end_date" />
-                            </div>
-                            <div>
-                                Travel Mode: <field name="travel_mode" />
+    <field name="name">trip.view.kanban</field>
+    <field name="model">trip</field>
+    <field name="arch" type="xml">
+        <kanban default_group_by="status">
+            <field name="trip_name"/>
+            <field name="start_date"/>
+            <field name="end_date"/>
+            <field name="travel_mode"/>
+            <field name="trip_type"/>
+            <field name="budget"/>
+            <field name="status" invisible="1"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <strong>
+                            <field name="trip_name" />
+                        </strong>
+                        <div>
+                            Start Date: <field name="start_date" />
+                        </div>
+                        <div>
+                            End Date: <field name="end_date" />
+                        </div>
+                        <div>
+                            Travel Mode: <field name="travel_mode" />
                             <br/>
                         </div>
                         <div>
-                                Trip Type: <field name="trip_type" />
-                        <br/>
-                                Budget: <field name="budget" />
-                    <br/>
-                </div>
-                <!-- <field name="tag_ids" options="{'color_field': 'color'}"/> -->
-            </div>
-        </t>
-    </templates>
-</kanban>
-</field>
+                            Trip Type: <field name="trip_type" />
+                            <br/>
+                            Budget: <field name="budget" />
+                            <br/>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
 </record>
 </odoo>
