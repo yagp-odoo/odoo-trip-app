@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Organizer Tree View -->
+    <record id="organizer_tree_view" model="ir.ui.view">
+        <field name="name">organizer.tree.view</field>
+        <field name="model">organizer</field>
+        <field name="arch" type="xml">
+            <tree string="Organizers Tree View">
+                <field name="organizer_name"/>
+                <field name="organizer_email"/>
+                <field name="allocated_budget"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Organizer Form View -->
+    <record id="organizer_form_view" model="ir.ui.view">
+        <field name="name">organizer.form.view</field>
+        <field name="model">organizer</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="organizer_name"/>
+                    <field name="organizer_email"/>
+                    <field name="allocated_budget"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

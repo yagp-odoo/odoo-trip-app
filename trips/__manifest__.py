@@ -12,6 +12,7 @@
         "views/trips_menus.xml",
         "views/trips_views.xml",
         "views/trip_location_views.xml",
+        "views/organizer_views.xml",
 
     ],
     'license': "LGPL-3",

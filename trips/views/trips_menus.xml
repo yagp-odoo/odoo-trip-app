@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <menuitem id="trips_dashboard" name="Trips">
+    <menuitem id="trips_dashboard" name="Trips" web_icon="trips,static/description/trip-icon-new.png">
         <menuitem id='trips_app_menu' name='Dashboard'>
             <menuitem id='trips_all' action='trips_all_action' />
         </menuitem>
-        <menuitem id='trips_app_location' name='Destinations'>
+        <menuitem id='trips_app_location' name='Options'>
             <menuitem id='trip_locations' action='trip_location_action' />
+            <menuitem id='oganizers' action='organizer_action' />
         </menuitem>
     </menuitem>
 </odoo>
