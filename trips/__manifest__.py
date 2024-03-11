@@ -4,6 +4,7 @@
     'depends': ["base"],
     'author': "Yagnik (yagp)",
     'category': "Localization",
+    'sequence': '-1',
     'summary': "Organize and Manage All Your Travels with Odoo Trips",
     'data': [
         "security/ir.model.access.csv",
@@ -12,7 +13,12 @@
         "views/trips_menus.xml",
         "views/trips_views.xml",
         "views/trip_location_views.xml",
+        "views/trip_location_entry_views.xml",
         "views/organizer_views.xml",
+        "views/trip_participant_views.xml",
+        "views/trip_participant_entry_views.xml",
+        "views/expense_views.xml",
+        "wizard/add_expense_views.xml",
 
     ],
     'license': "LGPL-3",

@@ -16,4 +16,19 @@
         <field name="res_model">organizer</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <record id="participant_action" model="ir.actions.act_window">
+        <field name="name">Participants</field>
+        <field name="res_model">trip.participant</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="trip_expense_action" model="ir.actions.act_window">
+        <field name="name">Expenses</field>
+        <field name="res_model">trip.expense</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="trip_expense_category_action" model="ir.actions.act_window">
+        <field name="name">Expense Categories</field>
+        <field name="res_model">trip.expense.category</field>
+        <field name="view_mode">tree</field>
+    </record>
 </odoo>

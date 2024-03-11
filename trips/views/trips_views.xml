@@ -57,6 +57,7 @@
                     <button name="plan_trip" class="oe_highlight" type="object" string="Plan" invisible="status not in ('draft')" />
                     <button name="complate_trip" class="oe_highlight" type="object" string="Complated" invisible="status not in ('ongoing')" />
                     <button name="cancel_trip" type="object" string="Cancel" invisible="status == 'canceled'" />
+                    <button string="Add Expense" type="object" class="oe_highlight" name="open_trip_expense_wizard"/>
                     <field name="status" widget="statusbar" statusbar_visible="draft,planned,ongoing,completed" />
                 </header>
                 <sheet>
@@ -81,6 +82,7 @@
                         </group>
                         <group>
                             <!-- <field name="tags_ids" /> -->
+                            <field name="expected_budget" />
                             <field name="budget" />
                         </group>
                     </group>
@@ -88,13 +90,31 @@
                         <page string="Description">
                             <group>
                                 <field name="details"/>
-                                <field name="organizer_id"/>
                                 <field name="travel_days"/>
-                                <field name="location_ids"/>
                             </group>
                         </page>
-                        <page string="Other Info">
-
+                        <page string="Organizer">
+                            <group>
+                                <field name="organizer_id"/>
+                                <field name="organizer_mail" invisible="not organizer_id"/>
+                                <field name="currency_id" invisible="1" />
+                                <field name="organizer_budget" invisible="not organizer_id" widget="monetary"/>
+                            </group>
+                        </page>
+                        <page string="Locations">
+                            <field name="location_ids" />
+                            <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                <group colspan="4">
+                                    <field colspan="2" name="note" nolabel="1" placeholder="Terms and conditions..."/>
+                                </group>
+                                <group class="oe_subtotal_footer" colspan="2" name="sale_total">
+                                    <field name="total_amount" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/>
+                                </group>
+                                <div class="clearfix"/>
+                            </group>
+                        </page>
+                        <page string="Participants">
+                            <field name="participants" />
                         </page>
                     </notebook>
                 </sheet>
@@ -103,43 +123,43 @@
     </record>
     <!-- Trips Kanban View -->
     <record id="trip_kanban_view" model="ir.ui.view">
-    <field name="name">trip.view.kanban</field>
-    <field name="model">trip</field>
-    <field name="arch" type="xml">
-        <kanban default_group_by="status">
-            <field name="trip_name"/>
-            <field name="start_date"/>
-            <field name="end_date"/>
-            <field name="travel_mode"/>
-            <field name="trip_type"/>
-            <field name="budget"/>
-            <field name="status" invisible="1"/>
-            <templates>
-                <t t-name="kanban-box">
-                    <div class="oe_kanban_global_click">
-                        <strong>
-                            <field name="trip_name" />
-                        </strong>
-                        <div>
+        <field name="name">trip.view.kanban</field>
+        <field name="model">trip</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="trip_name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="travel_mode"/>
+                <field name="trip_type"/>
+                <field name="budget"/>
+                <field name="status" invisible="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong>
+                                <field name="trip_name" />
+                            </strong>
+                            <div>
                             Start Date: <field name="start_date" />
-                        </div>
-                        <div>
+                            </div>
+                            <div>
                             End Date: <field name="end_date" />
-                        </div>
-                        <div>
+                            </div>
+                            <div>
                             Travel Mode: <field name="travel_mode" />
                             <br/>
                         </div>
                         <div>
                             Trip Type: <field name="trip_type" />
-                            <br/>
+                        <br/>
                             Budget: <field name="budget" />
-                            <br/>
-                        </div>
-                    </div>
-                </t>
-            </templates>
-        </kanban>
-    </field>
+                    <br/>
+                </div>
+            </div>
+        </t>
+    </templates>
+</kanban>
+</field>
 </record>
 </odoo>

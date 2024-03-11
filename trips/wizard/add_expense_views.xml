@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_trip_expense_wizard_form" model="ir.ui.view">
+        <field name="name">add.expense.wizard.form</field>
+        <field name="model">add.expense.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="expense_category"/>
+                    <field name="amount"/>
+                    <field name="description"/>
+                </group>
+                <footer>
+                    <button string="Add Expense" type="object" class="oe_highlight" name="add_expense_to_trip"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

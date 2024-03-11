@@ -1,16 +1,24 @@
 from odoo import models,fields,api,exceptions
+from odoo.tools import html_keep_url, is_html_empty
+from odoo.exceptions import ValidationError
 
 class Trips(models.Model):
     _name = "trip"
     _description = "Organize and Manage All Your Travels with Odoo Trips"
     _rec_name = "trip_name"
 
+    company_id = fields.Many2one('res.company', store=True, copy=False,
+                                string="Company",
+                                default=lambda self: self.env.user.company_id.id)
+    currency_id = fields.Many2one('res.currency', string="Currency", related='company_id.currency_id')
+
     trip_id = fields.Char(string='Trip ID', copy=False, readonly=True, index=True)
     trip_name = fields.Char(string='Trip Name', required=True)
     start_date = fields.Date(string='Start Date')
     end_date = fields.Date(string='End Date')
     organizer_id = fields.Many2one('organizer', string='Organizer')
-    location_ids = fields.Many2one('trip.location', string='Locations', help="Locations Includes in your Trip.")
+    organizer_mail = fields.Char(related='organizer_id.organizer_email')
+    organizer_budget = fields.Monetary(related='organizer_id.allocated_budget')
     details = fields.Text(string='Trip Details')
     from_location_id = fields.Many2one('trip.location',string='From', help="Trip starting Location")
     to_location_id = fields.Many2one('trip.location',string='To', help="Trip ending Location")
@@ -44,9 +52,33 @@ class Trips(models.Model):
             ('other', 'Other'),
         ], 
         string='Travel Mode')
-    budget = fields.Float(string='Budget')
+    expected_budget = fields.Monetary(string='Expected Budget', compute='_compute_expected_budget')
+    budget = fields.Monetary(string='Trip Budget')
     # tag_ids = fields.Many2many('estate.property.tag', string="Tags")
     travel_days = fields.Integer(compute='_compute_travel_days', string='Travel Days', store=True)
+    
+    loc_temp = fields.Integer(related='to_location_id.loc_temperature')
+    loc_cond = fields.Selection(related='to_location_id.loc_conditions', string="Weather Condition", readonly=False)
+    location_ids = fields.One2many('trip.location.entry', 'trips_id', string='Locations', help="Locations Includes in your Trip.")
+    total_amount = fields.Integer(compute="_compute_total_amount", string="Total Stay Cost", readonly=True, store=True)
+    note = fields.Html(string="Terms and conditions",store=True,readonly=False)
+    participants = fields.One2many('trip.participant.entry', 'trips_id', string='Participants')
+    expenses_ids = fields.One2many('trip.expense' , 'trip_id')
+
+
+    @api.constrains('budget', 'organizer_id')
+    def check_price(self):
+        for budget in self:
+            if (budget.budget and budget.budget < budget.organizer_budget):
+                raise ValidationError("Trip Budget must be greater than or equal to organizer's budget")
+
+
+    @api.depends('location_ids.loc_days', 'location_ids.loc_cost')
+    def _compute_total_amount(self):
+        for rec in self:
+            total_amount = sum(entry.loc_days * entry.loc_cost for entry in rec.location_ids)
+            rec.total_amount = total_amount
+
 
     # Compute Status based on Start and End Date
     @api.depends('start_date', 'end_date')
@@ -70,6 +102,11 @@ class Trips(models.Model):
                 record.travel_days = delta.days
             else:
                 record.travel_days = 0
+
+    @api.depends('organizer_id')
+    def _compute_expected_budget(self):
+        for trip in self:
+            trip.expected_budget = trip.organizer_budget 
     
     @api.model_create_multi
     def create(self, vals_list):
@@ -103,3 +140,15 @@ class Trips(models.Model):
             else:
                 raise exceptions.UserError("Invalid Trip Status for Complate!")
         return True
+
+
+    def open_trip_expense_wizard(self):
+        return {
+            'name': 'Add Expense',
+            'type': 'ir.actions.act_window',
+            'res_model': 'add.expense.wizard',
+            'view_mode': 'form',
+            'view_id': self.env.ref('trips.view_trip_expense_wizard_form').id,
+            'target': 'new',
+            'context': {'default_trip_id': self.id},
+        }

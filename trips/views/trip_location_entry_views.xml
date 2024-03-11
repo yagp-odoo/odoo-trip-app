@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="trip_entry_tree_view" model="ir.ui.view">
+        <field name="name">trip.entry.tree.view</field>
+        <field name="model">trip.location.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Entry Tree View" editable="top">
+                <field name="location_id"/>
+                <field name="loc_cost" widget="monetary"/>
+                <field name="loc_days" />
+            </tree>
+        </field>
+    </record>
+    <record id="trip_entry_form_view" model="ir.ui.view">
+        <field name="name">trip.entry.form.view</field>
+        <field name="model">trip.location.entry</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="location_id"/>
+                        <field name="loc_cost" widget="monetary"/>
+                        <field name="loc_days" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

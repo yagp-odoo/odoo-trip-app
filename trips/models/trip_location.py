@@ -7,7 +7,7 @@ class TripLocation(models.Model):
 
     location_name = fields.Char(string="Location Name")
     location_id = fields.Char(string="Location ID", required=True)
-    cost_per_day = fields.Integer(string="Cost per day")
+    cost_per_day = fields.Integer(string="Cost Per Day")
     address = fields.Text(string="Location Address")
     loc_website = fields.Char(string="Location Website")
     loc_temperature = fields.Integer(string="Temperature")
