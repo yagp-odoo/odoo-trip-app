@@ -64,13 +64,13 @@ class Trips(models.Model):
     note = fields.Html(string="Terms and conditions",store=True,readonly=False)
     participants = fields.One2many('trip.participant.entry', 'trips_id', string='Participants')
     expenses_ids = fields.One2many('trip.expense' , 'trip_id')
+    expense_count = fields.Integer(compute='_compute_offer_count')
 
+    @api.depends('expenses_ids')
+    def _compute_offer_count(self):
+        for record in self:
+            record.expense_count = len(record.expenses_ids)
 
-    @api.constrains('budget', 'organizer_id')
-    def check_price(self):
-        for budget in self:
-            if (budget.budget and budget.budget < budget.organizer_budget):
-                raise ValidationError("Trip Budget must be greater than or equal to organizer's budget")
 
 
     @api.depends('location_ids.loc_days', 'location_ids.loc_cost')
@@ -78,7 +78,6 @@ class Trips(models.Model):
         for rec in self:
             total_amount = sum(entry.loc_days * entry.loc_cost for entry in rec.location_ids)
             rec.total_amount = total_amount
-
 
     # Compute Status based on Start and End Date
     @api.depends('start_date', 'end_date')

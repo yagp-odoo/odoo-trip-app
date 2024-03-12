@@ -10,6 +10,7 @@
                     <group string="Expense Details">
                         <field name="name" />
                         <field name="date" />
+                        <field name="trip_id" />
                         <field name="expense_category" />
                         <field name="amount" />
                         <field name="description" />

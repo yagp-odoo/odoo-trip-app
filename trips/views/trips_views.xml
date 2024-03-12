@@ -56,17 +56,24 @@
                 <header>
                     <button name="plan_trip" class="oe_highlight" type="object" string="Plan" invisible="status not in ('draft')" />
                     <button name="complate_trip" class="oe_highlight" type="object" string="Complated" invisible="status not in ('ongoing')" />
-                    <button name="cancel_trip" type="object" string="Cancel" invisible="status == 'canceled'" />
-                    <button string="Add Expense" type="object" class="oe_highlight" name="open_trip_expense_wizard"/>
+                    <button name="cancel_trip" type="object" string="Cancel" invisible="status in ('canceled','completed')" />
+                    <button string="Add Expense" type="object" name="open_trip_expense_wizard" invisible="status not in ('ongoing')"/>
                     <field name="status" widget="statusbar" statusbar_visible="draft,planned,ongoing,completed" />
                 </header>
                 <sheet>
-                    <h1 class="mb16">
-                        <field name="trip_name" placeholder="e.g. Office Trip" />
-                    </h1>
-                    <h2 class="mb32">
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(trips.trip_expense_stat_action)d" class="oe_stat_button" icon="fa-money" type="action">
+                            <div class="o_field_widget o_stat_info">
+                                <field name="expense_count" widget="statinfo" string="Expense" />
+                            </div>
+                        </button>
+                    </div>
+                    <h2 class="mb16">
                         <field name="trip_id" string="Trip ID" />
                     </h2>
+                    <h1 class="mb32">
+                        <field name="trip_name" placeholder="e.g. Office Trip" />
+                    </h1>
                     <group col="2">
                         <group>
                             <field name="trip_type" widget="selection" placeholder="Select a trip type" />
