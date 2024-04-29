@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <menuitem id="trips_dashboard" name="Trips" web_icon="trips,static/description/trip-icon-new.png">
+    <menuitem id="trips_dashboard" name="Trips" web_icon="trips,static/description/icon.png">
         <menuitem id='trips_app_menu' name='Dashboard'>
             <menuitem id='trips_all' action='trips_all_action' />
+        </menuitem>
+        <menuitem id='trips_app_expense' name='Expense'>
+            <menuitem id='trip_expense' action='trip_expense_action' />
+            <menuitem id='trip_expense_category' action='trip_expense_category_action' />
         </menuitem>
         <menuitem id='trips_app_location' name='Options'>
             <menuitem id='trip_locations' action='trip_location_action' />
             <menuitem id='oganizers' action='organizer_action' />
+            <menuitem id='participants' action='participant_action' />
+            <menuitem id='trip_tags' action='trip_tags_action' />
         </menuitem>
     </menuitem>
 </odoo>

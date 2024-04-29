@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Trip Tags Tree View -->
+    <record id="trip_tags_tree_view" model="ir.ui.view">
+        <field name="name">trip.tags.tree.view</field>
+        <field name="model">trip.tags</field>
+        <field name="arch" type="xml">
+            <tree string="Tags Tree View">
+                <field name="tag"/>
+                <field name="color" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Trip Tags Form View -->
+    <record id="organizer_form_view" model="ir.ui.view">
+        <field name="name">trip.tags.form.view</field>
+        <field name="model">trip.tags</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="tag"/>
+                    <field name="color"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

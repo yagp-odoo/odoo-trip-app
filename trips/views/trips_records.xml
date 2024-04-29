@@ -4,16 +4,90 @@
         <field name="name">All Trips</field>
         <field name="res_model">trip</field>
         <field name="view_mode">tree,kanban,form</field>
-
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You haven't created any trips yet!
+            </p>
+            <p> Create a new trip using the "New" button.</p>
+        </field>
     </record>
     <record id="trip_location_action" model="ir.actions.act_window">
         <field name="name">Locations</field>
         <field name="res_model">trip.location</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You haven't added any locations yet!
+            </p>
+            <p> Add a new trip location using the "New" button.</p>
+        </field>
     </record>
+
+    
     <record id="organizer_action" model="ir.actions.act_window">
         <field name="name">Organizers</field>
         <field name="res_model">organizer</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Organizer Found!
+            </p>
+            <p> Add a new organizer using the "New" button.</p>
+        </field>
+    </record>
+    <record id="participant_action" model="ir.actions.act_window">
+        <field name="name">Participants</field>
+        <field name="res_model">trip.participant</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Participants Found!
+            </p>
+            <p> Add a new participant using the "New" button.</p>
+        </field>
+    </record>
+    <record id="trip_expense_action" model="ir.actions.act_window">
+        <field name="name">Expenses</field>
+        <field name="res_model">trip.expense</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Expense Found!
+            </p>
+            <p> Create a new expense using the "New" button.</p>
+        </field>
+    </record>
+    <record id="trip_expense_category_action" model="ir.actions.act_window">
+        <field name="name">Expense Categories</field>
+        <field name="res_model">trip.expense.category</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You haven't created any expense category yet!
+            </p>
+            <p> Create a new expense category using the "New" button.</p>
+        </field>
+    </record>
+    <record id="trip_tags_action" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">trip.tags</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Trip Tags Found!
+            </p>
+            <p> Create a new trip tag using the "New" button.</p>
+        </field>
+    </record>
+    <record id="trip_expense_stat_action" model="ir.actions.act_window">
+        <field name="name">Expense</field>
+        <field name="res_model">trip.expense</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('trip_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No expenses has been added yet!
+            </p>
+        </field>
     </record>
 </odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="trip_expense_form" model="ir.ui.view">
+        <field name="name">trip.expense.form</field>
+        <field name="model">trip.expense</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Expense Details">
+                        <field name="name" />
+                        <field name="date" />
+                        <field name="trip_id" />
+                        <field name="expense_category" />
+                        <field name="amount" />
+                        <field name="description" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="trip_expense_tree" model="ir.ui.view">
+        <field name="name">trip.expense.tree</field>
+        <field name="model">trip.expense</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="date" />
+                <field name="expense_category" />
+                <field name="amount" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="trip_expense_category_tree" model="ir.ui.view">
+        <field name="name">trip.expense.category.tree</field>
+        <field name="model">trip.expense.category</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="expense_category_name" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>

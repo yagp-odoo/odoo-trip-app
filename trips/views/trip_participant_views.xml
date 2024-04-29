@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_trip_participant_tree" model="ir.ui.view">
+        <field name="name">trip.participant.tree</field>
+        <field name="model">trip.participant</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="participant_name"/>
+                <field name="participant_contact"/>
+                <field name="participant_age"/>
+                <field name="participant_address"/>
+                <field name="doc_type"/>
+                <field name="doc_id"/>
+                <field name="participant_email"/>
+                <field name="emergency_contact"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_trip_participant_form" model="ir.ui.view">
+        <field name="name">trip.participant.form</field>
+        <field name="model">trip.participant</field>
+        <field name="arch" type="xml">
+            <form>
+                <group class="o_group_col_6">
+                    <group string="Participantn Infomation">
+                        <field name="participant_name" class="o_form_field"/>
+                        <field name="participant_age" class="o_form_field"/>
+                        <field name="participant_contact" class="o_form_field"/>
+                        <field name="participant_address" class="o_form_field"/>
+                    </group>
+                    <group string="Participantn Documents">
+                        <field name="doc_type" class="o_form_field"/>
+                        <field name="doc_id" class="o_form_field"/>
+                        <field name="attach_file" class="o_form_field" widget="binary" options="{'no_create_edit': True}"/>
+                        <field name="expiry_date" class="o_form_field"/>
+                    </group>
+                </group>
+                <group string="Participantn Emergency Infomation">
+                    <field name="participant_email" class="o_form_field"/>
+                    <field name="emergency_contact" class="o_form_field"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
+

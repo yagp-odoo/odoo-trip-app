@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="trip_participant_entry_tree_view" model="ir.ui.view">
+        <field name="name">trip.participant.entrytree.view</field>
+        <field name="model">trip.participant.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Participant Entry Tree View" editable="top">
+                <field name="participant_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="trip_participant_entry_form_view" model="ir.ui.view">
+        <field name="name">trip.participant.entryform.view</field>
+        <field name="model">trip.participant.entry</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="participant_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
