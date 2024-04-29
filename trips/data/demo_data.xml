@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Demo Trip Locations in India -->
+        <record id="trip_location_india_demo_1" model="trip.location">
+            <field name="name">Jaipur, India</field>
+            <field name="location_id">JAIPUR</field>
+            <field name="cost_per_day">80</field>
+            <field name="street">123 Hawa Mahal Rd</field>
+            <field name="zip">302002</field>
+            <field name="city">Jaipur</field>
+            <field name="state_id" eval="ref('base.state_in_rj')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.tourism.rajasthan.gov.in/jaipur.html</field>
+            <field name="loc_temperature">30</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Jaipur, the Pink City.</field>
+            <field name="latitude">26.9124</field>
+            <field name="longitude">75.7873</field>
+        </record>
+        <record id="trip_location_india_demo_2" model="trip.location">
+            <field name="name">Goa, India</field>
+            <field name="location_id">GOA</field>
+            <field name="cost_per_day">120</field>
+            <field name="street">456 Beach Rd</field>
+            <field name="zip">403001</field>
+            <field name="city">Panaji</field>
+            <field name="state_id" eval="ref('base.state_in_ga')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.goatourism.gov.in/</field>
+            <field name="loc_temperature">28</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Goa, the land of sun, sand, and sea.</field>
+            <field name="latitude">15.2993</field>
+            <field name="longitude">74.1240</field>
+        </record>
+        <record id="trip_location_india_demo_3" model="trip.location">
+            <field name="name">Agra, India</field>
+            <field name="location_id">AGRA</field>
+            <field name="cost_per_day">90</field>
+            <field name="street">456 Taj Mahal Rd</field>
+            <field name="zip">282001</field>
+            <field name="city">Agra</field>
+            <field name="state_id" eval="ref('base.state_in_up')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.uptourism.gov.in/agra</field>
+            <field name="loc_temperature">32</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Agra, home to the iconic Taj Mahal.</field>
+            <field name="latitude">27.1751</field>
+            <field name="longitude">78.0421</field>
+        </record>
+        <record id="trip_location_india_demo_4" model="trip.location">
+            <field name="name">Udaipur, India</field>
+            <field name="location_id">UDAIPUR</field>
+            <field name="cost_per_day">85</field>
+            <field name="street">789 Lake Palace Rd</field>
+            <field name="zip">313001</field>
+            <field name="city">Udaipur</field>
+            <field name="state_id" eval="ref('base.state_in_rj')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.rajasthantourism.gov.in/udaipur</field>
+            <field name="loc_temperature">29</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Udaipur, the city of lakes.</field>
+            <field name="latitude">24.5854</field>
+            <field name="longitude">73.7125</field>
+        </record>
+        <record id="trip_location_india_demo_5" model="trip.location">
+            <field name="name">Kolkata, India</field>
+            <field name="location_id">KOLKATA</field>
+            <field name="cost_per_day">95</field>
+            <field name="street">123 Park St</field>
+            <field name="zip">700016</field>
+            <field name="city">Kolkata</field>
+            <field name="state_id" eval="ref('base.state_in_wb')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.wbtourismgov.in/kolkata</field>
+            <field name="loc_temperature">30</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Kolkata, the cultural capital of India.</field>
+            <field name="latitude">22.5726</field>
+            <field name="longitude">88.3639</field>
+        </record>
+        <record id="trip_location_india_demo_6" model="trip.location">
+            <field name="name">Varanasi, India</field>
+            <field name="location_id">VARANASI</field>
+            <field name="cost_per_day">75</field>
+            <field name="street">456 Ganges River Rd</field>
+            <field name="zip">221001</field>
+            <field name="city">Varanasi</field>
+            <field name="state_id" eval="ref('base.state_in_up')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.uptourism.gov.in/varanasi</field>
+            <field name="loc_temperature">34</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Varanasi, the spiritual capital of India.</field>
+            <field name="latitude">25.3176</field>
+            <field name="longitude">82.9739</field>
+        </record>
+        <record id="trip_location_india_demo_7" model="trip.location">
+            <field name="name">Shimla, India</field>
+            <field name="location_id">SHIMLA</field>
+            <field name="cost_per_day">80</field>
+            <field name="street">789 Mall Rd</field>
+            <field name="zip">171001</field>
+            <field name="city">Shimla</field>
+            <field name="state_id" eval="ref('base.state_in_hp')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.hptdc.gov.in/</field>
+            <field name="loc_temperature">25</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Shimla, the Queen of Hills.</field>
+            <field name="latitude">31.1048</field>
+            <field name="longitude">77.1734</field>
+        </record>
+        <record id="trip_location_india_demo_8" model="trip.location">
+            <field name="name">Mumbai, India</field>
+            <field name="location_id">MUMBAI</field>
+            <field name="cost_per_day">100</field>
+            <field name="street">789 Marine Dr</field>
+            <field name="zip">400001</field>
+            <field name="city">Mumbai</field>
+            <field name="state_id" eval="ref('base.state_in_mh')"/>
+            <field name="country_id" ref="base.in"/>
+            <field name="loc_website">https://www.maharashtratourism.gov.in/mumbai</field>
+            <field name="loc_temperature">32</field>
+            <field name="loc_conditions">sunny</field>
+            <field name="loc_description">Mumbai, the city of dreams.</field>
+            <field name="latitude">19.0760</field>
+            <field name="longitude">72.8777</field>
+        </record>
+
+        <!-- Demo Trip Participants -->
+        <record id="trip_participant_demo_1" model="trip.participant">
+            <field name="participant_name">Tom the Cat</field>
+            <field name="participant_age">30</field>
+            <field name="participant_contact">1234567890</field>
+            <field name="participant_address">123 Main St, NewCity, NewCountry</field>
+            <field name="doc_type">passport</field>
+            <field name="doc_id">ABC123456</field>
+            <field name="expiry_date">2025-05-01</field>
+            <field name="participant_email">tom@thecat.com</field>
+            <field name="emergency_contact">0987654321</field>
+        </record>
+        <record id="trip_participant_demo_2" model="trip.participant">
+            <field name="participant_name">Rajesh Kumar</field>
+            <field name="participant_age">30</field>
+            <field name="participant_contact">9876543210</field>
+            <field name="participant_address">123 MG Road, Bangalore, India</field>
+            <field name="doc_type">passport</field>
+            <field name="doc_id">ABCDE1234F</field>
+            <field name="expiry_date">2026-05-20</field>
+            <field name="participant_email">rajesh@example.com</field>
+            <field name="emergency_contact">0123456789</field>
+        </record>
+        <record id="trip_participant_demo_3" model="trip.participant">
+            <field name="participant_name">Priya Patel</field>
+            <field name="participant_age">28</field>
+            <field name="participant_contact">9876543211</field>
+            <field name="participant_address">456 Brigade Road, Chennai, India</field>
+            <field name="doc_type">id_card</field>
+            <field name="doc_id">ABCDE5678G</field>
+            <field name="expiry_date">2025-08-10</field>
+            <field name="participant_email">priya@example.com</field>
+            <field name="emergency_contact">0123456789</field>
+        </record>
+        <record id="trip_participant_demo_4" model="trip.participant">
+            <field name="participant_name">Amit Sharma</field>
+            <field name="participant_age">32</field>
+            <field name="participant_contact">9876543212</field>
+            <field name="participant_address">789 Park Street, Mumbai, India</field>
+            <field name="doc_type">passport</field>
+            <field name="doc_id">FGHIJ5678H</field>
+            <field name="expiry_date">2027-12-05</field>
+            <field name="participant_email">amit@example.com</field>
+            <field name="emergency_contact">0123456789</field>
+        </record>
+        <record id="trip_participant_demo_5" model="trip.participant">
+            <field name="participant_name">Sunita Singh</field>
+            <field name="participant_age">26</field>
+            <field name="participant_contact">9876543213</field>
+            <field name="participant_address">101 Lake Road, Kolkata, India</field>
+            <field name="doc_type">id_card</field>
+            <field name="doc_id">KLMNO1234P</field>
+            <field name="expiry_date">2025-06-15</field>
+            <field name="participant_email">sunita@example.com</field>
+            <field name="emergency_contact">0123456789</field>
+        </record>
+        <record id="trip_participant_demo_6" model="trip.participant">
+            <field name="participant_name">Ms. Priya</field>
+            <field name="participant_age">22</field>
+            <field name="participant_contact">9876543213</field>
+            <field name="participant_address">SG Highway, Ahemedabad, Gujrat, India</field>
+            <field name="doc_type">id_card</field>
+            <field name="doc_id">ANGEL909</field>
+            <field name="expiry_date">2027-06-15</field>
+            <field name="participant_email">priya@me.com</field>
+            <field name="emergency_contact">0123456789</field>
+        </record>
+        <record id="trip_participant_demo_7" model="trip.participant">
+            <field name="participant_name">Mr. Rahul</field>
+            <field name="participant_age">30</field>
+            <field name="participant_contact">9876543214</field>
+            <field name="participant_address">Baner Road, Pune, Maharashtra, India</field>
+            <field name="doc_type">passport</field>
+            <field name="doc_id">PASS12345</field>
+            <field name="expiry_date">2028-03-20</field>
+            <field name="participant_email">rahul@example.com</field>
+            <field name="emergency_contact">0123456789</field>
+        </record>
+        <record id="trip_participant_demo_8" model="trip.participant">
+            <field name="participant_name">Ms. Pooja</field>
+            <field name="participant_age">28</field>
+            <field name="participant_contact">9876543215</field>
+            <field name="participant_address">Ballygunge, Kolkata, West Bengal, India</field>
+            <field name="doc_type">id_card</field>
+            <field name="doc_id">POOJA786</field>
+            <field name="expiry_date">2026-09-10</field>
+            <field name="participant_email">pooja@example.com</field>
+            <field name="emergency_contact">0123456789</field>
+        </record>
+
+        <!-- Demo Expense Categories -->
+        <record id="expense_category_demo_1" model="trip.expense.category">
+            <field name="expense_category_name">Accommodation</field>
+        </record>
+        <record id="expense_category_demo_2" model="trip.expense.category">
+            <field name="expense_category_name">Transportation</field>
+        </record>
+        <record id="expense_category_demo_3" model="trip.expense.category">
+            <field name="expense_category_name">Meals</field>
+        </record>
+        <record id="expense_category_demo_4" model="trip.expense.category">
+            <field name="expense_category_name">Entertainment</field>
+        </record>
+        <record id="expense_category_demo_5" model="trip.expense.category">
+            <field name="expense_category_name">Miscellaneous</field>
+        </record>
+
+        <!-- Demo Organizers -->
+        <record id="organizer_demo_1" model="organizer">
+            <field name="organizer_name">ABC Events</field>
+            <field name="organizer_email">abc@example.com</field>
+            <field name="allocated_budget">10000.00</field>
+        </record>
+        <record id="organizer_demo_2" model="organizer">
+            <field name="organizer_name">XYZ Travel Agency</field>
+            <field name="organizer_email">xyz@example.com</field>
+            <field name="allocated_budget">5000.00</field>
+        </record>
+
+        <!-- Demo Trip Tags -->
+        <record id="trip_tag_demo_1" model="trip.tags">
+            <field name="tag">Business</field>
+            <field name="color">65280</field> <!-- Green -->
+        </record>
+        <record id="trip_tag_demo_2" model="trip.tags">
+            <field name="tag">Vacation</field>
+            <field name="color">16776960</field> <!-- Yellow -->
+        </record>
+        <record id="trip_tag_demo_3" model="trip.tags">
+            <field name="tag">Family</field>
+            <field name="color">255</field> <!-- Red -->
+        </record>
+
+        <!-- First Trip -->
+        <record id="trip_demo_1" model="trip">
+            <field name="trip_name">Business Trip to Jaipur</field>
+            <field name="start_date">2024-05-01</field>
+            <field name="end_date">2024-05-05</field>
+            <field name="status">planned</field>
+            <field name="organizer_id" ref="organizer_demo_1"/>
+            <field name="from_location_id" ref="trip_location_india_demo_1"/>
+            <field name="to_location_id" ref="trip_location_india_demo_8"/>
+            <field name="trip_type">business</field>
+            <field name="travel_mode">plane</field>
+            <field name="note"><![CDATA[<p>Terms and conditions for the trip.</p>]]></field>
+            <field name="tags_ids" eval="[(6, 0, [ref('trip_tag_demo_1')])]"/>
+        </record>
+
+        <!-- Second Trip -->
+        <record id="trip_demo_2" model="trip">
+            <field name="trip_name">Family Vacation in Goa</field>
+            <field name="start_date">2024-06-10</field>
+            <field name="end_date">2024-06-20</field>
+            <field name="status">completed</field>
+            <field name="organizer_id" ref="organizer_demo_2"/>
+            <field name="from_location_id" ref="trip_location_india_demo_5"/>
+            <field name="to_location_id" ref="trip_location_india_demo_2"/>
+            <field name="trip_type">vacation</field>
+            <field name="travel_mode">plane</field>
+            <field name="note"><![CDATA[<p>Terms and conditions for the trip.</p>]]></field>
+            <field name="tags_ids" eval="[(6, 0, [ref('trip_tag_demo_2')]), (6, 0, [ref('trip_tag_demo_3')])]"/>
+        </record>
+
+        <!-- Third Trip -->
+        <record id="trip_demo_3" model="trip">
+            <field name="trip_name">Business Trip to Mumbai</field>
+            <field name="start_date">2024-07-10</field>
+            <field name="end_date">2024-07-15</field>
+            <field name="status">draft</field>
+            <field name="organizer_id" ref="organizer_demo_1"/>
+            <field name="from_location_id" ref="trip_location_india_demo_4"/>
+            <field name="to_location_id" ref="trip_location_india_demo_8"/>
+            <field name="trip_type">business</field>
+            <field name="travel_mode">plane</field>
+            <field name="note"><![CDATA[<p>Terms and conditions for the trip.</p>]]></field>
+            <field name="tags_ids" eval="[(6, 0, [ref('trip_tag_demo_1')])]"/>
+        </record>
+
+        <!-- Fourth Trip -->
+        <record id="trip_demo_4" model="trip">
+            <field name="trip_name">Vacation Trip to Varanasi</field>
+            <field name="start_date">2024-08-20</field>
+            <field name="end_date">2024-08-25</field>
+            <field name="status">canceled</field>
+            <field name="organizer_id" ref="organizer_demo_2"/>
+            <field name="from_location_id" ref="trip_location_india_demo_5"/>
+            <field name="to_location_id" ref="trip_location_india_demo_6"/>
+            <field name="trip_type">vacation</field>
+            <field name="travel_mode">plane</field>
+            <field name="note"><![CDATA[<p>Terms and conditions for the trip.</p>]]></field>
+            <field name="tags_ids" eval="[(6, 0, [ref('trip_tag_demo_2')])]"/>
+        </record>
+
+        <!-- Fifth Trip -->
+        <record id="trip_demo_5" model="trip">
+            <field name="trip_name">Exploration Trip to Agra</field>
+            <field name="start_date">2024-09-15</field>
+            <field name="end_date">2024-09-20</field>
+            <field name="status">draft</field>
+            <field name="organizer_id" ref="organizer_demo_1"/>
+            <field name="from_location_id" ref="trip_location_india_demo_1"/>
+            <field name="to_location_id" ref="trip_location_india_demo_3"/>
+            <field name="trip_type">vacation</field>
+            <field name="travel_mode">train</field>
+            <field name="note"><![CDATA[<p>Terms and conditions for the trip.</p>]]></field>
+            <field name="tags_ids" eval="[(6, 0, [ref('trip_tag_demo_2')])]"/>
+        </record>
+
+        <!-- Location Entry for the Trips -->
+        <record id="trip_location_entry_demo_1" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_1"/>
+            <field name="location_id" ref="trip_location_india_demo_1"/>
+            <field name="loc_days">4</field>
+        </record>
+        <record id="trip_location_entry_demo_2" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_1"/>
+            <field name="location_id" ref="trip_location_india_demo_8"/>
+            <field name="loc_days">1</field>
+        </record>
+        <record id="trip_location_entry_demo_3" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_2"/>
+            <field name="location_id" ref="trip_location_india_demo_3"/>
+            <field name="loc_days">3</field>
+        </record>
+        <record id="trip_location_entry_demo_4" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_2"/>
+            <field name="location_id" ref="trip_location_india_demo_7"/>
+            <field name="loc_days">2</field>
+        </record>
+        <record id="trip_location_entry_demo_5" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_3"/>
+            <field name="location_id" ref="trip_location_india_demo_5"/>
+            <field name="loc_days">5</field>
+        </record>
+        <record id="trip_location_entry_demo_6" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_3"/>
+            <field name="location_id" ref="trip_location_india_demo_6"/>
+            <field name="loc_days">2</field>
+        </record>
+        <record id="trip_location_entry_demo_7" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_4"/>
+            <field name="location_id" ref="trip_location_india_demo_2"/>
+            <field name="loc_days">3</field>
+        </record>
+        <record id="trip_location_entry_demo_8" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_4"/>
+            <field name="location_id" ref="trip_location_india_demo_4"/>
+            <field name="loc_days">4</field>
+        </record>
+
+        <record id="trip_location_entry_demo_9" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_5"/>
+            <field name="location_id" ref="trip_location_india_demo_1"/>
+            <field name="loc_days">4</field>
+        </record>
+        <record id="trip_location_entry_demo_10" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_5"/>
+            <field name="location_id" ref="trip_location_india_demo_8"/>
+            <field name="loc_days">1</field>
+        </record>
+        <record id="trip_location_entry_demo_11" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_5"/>
+            <field name="location_id" ref="trip_location_india_demo_3"/>
+            <field name="loc_days">3</field>
+        </record>
+        <record id="trip_location_entry_demo_12" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_5"/>
+            <field name="location_id" ref="trip_location_india_demo_7"/>
+            <field name="loc_days">2</field>
+        </record>
+        <record id="trip_location_entry_demo_13" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_5"/>
+            <field name="location_id" ref="trip_location_india_demo_5"/>
+            <field name="loc_days">5</field>
+        </record>
+        <record id="trip_location_entry_demo_14" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_3"/>
+            <field name="location_id" ref="trip_location_india_demo_5"/>
+            <field name="loc_days">2</field>
+        </record>
+        <record id="trip_location_entry_demo_15" model="trip.location.entry">
+            <field name="trips_id" ref="trip_demo_3"/>
+            <field name="location_id" ref="trip_location_india_demo_2"/>
+            <field name="loc_days">5</field>
+        </record>
+
+        <!-- Participants Entry for the Trips -->
+        <record id="trip_participant_entry_demo_1" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_1"/>
+            <field name="participant_id" ref="trip_participant_demo_1"/>
+        </record>
+        <record id="trip_participant_entry_demo_2" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_1"/>
+            <field name="participant_id" ref="trip_participant_demo_2"/>
+        </record>
+        <record id="trip_participant_entry_demo_3" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_2"/>
+            <field name="participant_id" ref="trip_participant_demo_3"/>
+        </record>
+        <record id="trip_participant_entry_demo_4" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_2"/>
+            <field name="participant_id" ref="trip_participant_demo_4"/>
+        </record>
+        <record id="trip_participant_entry_demo_5" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_3"/>
+            <field name="participant_id" ref="trip_participant_demo_5"/>
+        </record>
+        <record id="trip_participant_entry_demo_6" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_3"/>
+            <field name="participant_id" ref="trip_participant_demo_6"/>
+        </record>
+        <record id="trip_participant_entry_demo_7" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_4"/>
+            <field name="participant_id" ref="trip_participant_demo_3"/>
+        </record>
+        <record id="trip_participant_entry_demo_8" model="trip.participant.entry">
+            <field name="trips_id" ref="trip_demo_4"/>
+            <field name="participant_id" ref="trip_participant_demo_6"/>
+        </record>
+
+        <!-- Demo Trip Expenses -->
+        <record id="trip_expense_demo_1" model="trip.expense">
+            <field name="name">Hotel Stay</field>
+            <field name="date">2024-05-10</field>
+            <field name="expense_category" ref="expense_category_demo_1"/>
+            <field name="amount">150.00</field>
+            <field name="description">Three nights at ABC Hotel</field>
+            <field name="trip_id" ref="trip_demo_1"/>
+        </record>
+        <record id="trip_expense_demo_2" model="trip.expense">
+            <field name="name">Flight Ticket</field>
+            <field name="date">2024-05-05</field>
+            <field name="expense_category" ref="expense_category_demo_2"/>
+            <field name="amount">200.00</field>
+            <field name="description">Round-trip ticket from XYZ Airlines</field>
+            <field name="trip_id" ref="trip_demo_1"/>
+        </record>
+        <record id="trip_expense_demo_3" model="trip.expense">
+            <field name="name">Dinner</field>
+            <field name="date">2024-05-12</field>
+            <field name="expense_category" ref="expense_category_demo_3"/>
+            <field name="amount">50.00</field>
+            <field name="description">Dinner at a local restaurant</field>
+            <field name="trip_id" ref="trip_demo_2"/>
+        </record>
+        <record id="trip_expense_demo_4" model="trip.expense">
+            <field name="name">Car Rental</field>
+            <field name="date">2024-07-10</field>
+            <field name="expense_category" ref="expense_category_demo_4"/>
+            <field name="amount">100.00</field>
+            <field name="description">Rental of a car for local transportation</field>
+            <field name="trip_id" ref="trip_demo_3"/>
+        </record>
+        <record id="trip_expense_demo_5" model="trip.expense">
+            <field name="name">Sightseeing Tour</field>
+            <field name="date">2024-08-22</field>
+            <field name="expense_category" ref="expense_category_demo_4"/>
+            <field name="amount">75.00</field>
+            <field name="description">Guided sightseeing tour of local attractions</field>
+            <field name="trip_id" ref="trip_demo_4"/>
+        </record>
+        <record id="trip_expense_demo_6" model="trip.expense">
+            <field name="name">Shopping</field>
+            <field name="date">2024-09-01</field>
+            <field name="expense_category" ref="expense_category_demo_5"/>
+            <field name="amount">80.00</field>
+            <field name="description">Souvenirs and gifts</field>
+            <field name="trip_id" ref="trip_demo_5"/>
+        </record>
+        <record id="trip_expense_demo_7" model="trip.expense">
+            <field name="name">Train Tickets</field>
+            <field name="date">2024-05-15</field>
+            <field name="expense_category" ref="expense_category_demo_2"/>
+            <field name="amount">120.00</field>
+            <field name="description">Round-trip train tickets for travel</field>
+            <field name="trip_id" ref="trip_demo_2"/>
+        </record>
+        <record id="trip_expense_demo_8" model="trip.expense">
+            <field name="name">Entry Tickets</field>
+            <field name="date">2024-07-12</field>
+            <field name="expense_category" ref="expense_category_demo_3"/>
+            <field name="amount">30.00</field>
+            <field name="description">Entry tickets to tourist attractions</field>
+            <field name="trip_id" ref="trip_demo_3"/>
+        </record>
+        <record id="trip_expense_demo_9" model="trip.expense">
+            <field name="name">Lunch</field>
+            <field name="date">2024-08-23</field>
+            <field name="expense_category" ref="expense_category_demo_3"/>
+            <field name="amount">40.00</field>
+            <field name="description">Lunch at a local restaurant</field>
+            <field name="trip_id" ref="trip_demo_5"/>
+        </record>
+        <record id="trip_expense_demo_10" model="trip.expense">
+            <field name="name">Fuel</field>
+            <field name="date">2024-08-21</field>
+            <field name="expense_category" ref="expense_category_demo_4"/>
+            <field name="amount">50.00</field>
+            <field name="description">Fuel for car rental</field>
+            <field name="trip_id" ref="trip_demo_4"/>
+        </record>
+    </data>
+</odoo>

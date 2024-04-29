@@ -10,7 +10,6 @@ class Organizer(models.Model):
                                 default=lambda self: self.env.user.company_id.id)
     currency_id = fields.Many2one('res.currency', string="Currency", related='company_id.currency_id')
 
-    
     organizer_name = fields.Char(string="Organizer Name")
     organizer_email = fields.Char(string="Organizer Email")
     allocated_budget = fields.Monetary(string="Allocated Budget",store=True)

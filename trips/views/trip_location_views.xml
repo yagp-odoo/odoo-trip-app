@@ -6,9 +6,9 @@
         <field name="arch" type="xml">
             <tree string="Trips Tree View">
                 <field name="location_id" optional="hide"/>
-                <field name="location_name" />
+                <field name="name" />
                 <field name="cost_per_day" />
-                <field name="address" />
+                <field name="city" />
                 <field name="loc_website" />
             </tree>
         </field>
@@ -21,35 +21,45 @@
             <form>
                 <sheet>
                     <h1 class="mb16">
-                        <field name="location_name" placeholder="e.g. Gandhinagar" />
+                        <field name="name" placeholder="e.g. Gandhinagar" />
                     </h1>
                     <h2 class="mb32">
                         <field name="location_id" placeholder="Location ID" />
                     </h2>
                     <group col="2">
-                        <group>
-                            <field name="address" />
-                        </group>
-                        <group>
-                            <field name="cost_per_day" />
-                        </group>
+
+                        <div class="o_address_format">
+                            <field name="street" placeholder="Street..." class="o_address_street"/>
+                            <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                            <field name="city" placeholder="City" class="o_address_city"/>
+                            <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" context="{'default_country_id': country_id}"/>
+                            <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                            <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                        </div>
+
+                    <group>
+                        <field name="cost_per_day" />
                     </group>
-                    <notebook>
-                        <page string="Information">
-                            <group>
-                                <field name="loc_description"/>
-                                <field name="loc_website"/>
-                            </group>
-                        </page>
-                        <page string="Weather">
-                            <group>
-                                <field name="loc_temperature" />
-                                <field name="loc_conditions" />
-                            </group>
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                </group>
+                <notebook>
+                    <page string="Information">
+                        <group>
+                            <field name="loc_description"/>
+                            <field name="loc_website"/>
+                            <field name="latitude" />
+                            <field name="longitude" />
+                        </group>
+                    </page>
+                    <page string="Weather">
+                        <group>
+                            <field name="loc_temperature" />
+                            <field name="loc_conditions" />
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
 </odoo>

@@ -10,7 +10,7 @@ class TripParticipant(models.Model):
     participant_name = fields.Char(string='Participant Name', required=True)
     participant_contact = fields.Char(string='Participant Contact', required=True)
     participant_address = fields.Text(string='Participant Address')
-    
+
     doc_type = fields.Selection([
         ('passport', 'Passport'),
         ('id_card', 'ID Card'),

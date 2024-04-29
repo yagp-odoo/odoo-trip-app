@@ -3,7 +3,7 @@ from odoo import fields,models,api
 class TripLocationEntry(models.Model):
     _name = "trip.location.entry"
     _description="Trip Location Entry"
-    
+
 
     trips_id = fields.Many2one('trip')
     location_id = fields.Many2one('trip.location', required=True)
@@ -13,4 +13,4 @@ class TripLocationEntry(models.Model):
     @api.depends('location_id')
     def _compute_loc_cost(self):
         for rec in self:
-            rec.loc_cost = rec.location_id.cost_per_day 
+            rec.loc_cost = rec.location_id.cost_per_day

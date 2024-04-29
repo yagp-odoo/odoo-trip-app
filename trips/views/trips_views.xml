@@ -5,7 +5,7 @@
         <field name="name">trips.tree.view</field>
         <field name="model">trip</field>
         <field name="arch" type="xml">
-            <tree string="Trips Tree View">
+            <tree string="Trips Tree View" decoration-success="status in ('ongoing','planned')" decoration-bf="status in ('ongoing')" decoration-muted="status in ('completed')" decoration-danger="status == 'canceled'">
                 <field name="trip_id" string="Trip ID" optional="hide" />
                 <field name="trip_name" />
                 <field name="start_date" />
@@ -14,8 +14,8 @@
                 <field name="status" />
                 <field name="trip_type" />
                 <field name="travel_mode" />
-                <field name="budget" optional="hide" />
-                <!-- <field name="tag_ids" widget="many2many_tags"/> -->
+                <field name="expenditure" optional="hide" />
+                <field name="tags_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
@@ -33,12 +33,12 @@
                 <!-- <field name="status" /> -->
                 <field name="trip_type" />
                 <field name="travel_mode" />
-                <field name="budget" optional="hide" />
+                <field name="expenditure" optional="hide" />
                 <separator/>
-                <!-- <filter string="Planned" name="planned" domain="[('status','in',['planned'])]" />
+                <filter string="Planned" name="planned" domain="[('status','in',['planned'])]" />
                 <filter string="Ongoing" name="ongoing" domain="[('status','in',['ongoing'])]"/>
                 <filter string="Completed" name="completed" domain="[('status','in',['completed'])]"/>
-                <filter string="Canceled" name="canceled" domain="[('status','in',['canceled'])]"/> -->
+                <filter string="Canceled" name="canceled" domain="[('status','in',['canceled'])]"/>
                 <separator/>
                 <group string="Group By">
                     <filter string="Trip Type" name="trip_type" context="{'group_by':'trip_type', 'residual_visible':True}"/>
@@ -61,7 +61,7 @@
                     <field name="status" widget="statusbar" statusbar_visible="draft,planned,ongoing,completed" />
                 </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
+                    <div class="oe_button_box" name="button_box" invisible="expense_count == 0">
                         <button name="%(trips.trip_expense_stat_action)d" class="oe_stat_button" icon="fa-money" type="action">
                             <div class="o_field_widget o_stat_info">
                                 <field name="expense_count" widget="statinfo" string="Expense" />
@@ -88,9 +88,9 @@
                             <field name="to_location_id" />
                         </group>
                         <group>
-                            <!-- <field name="tags_ids" /> -->
+                            <field name="tags_ids" widget="many2many_tags" />
                             <field name="expected_budget" />
-                            <field name="budget" />
+                            <field name="expenditure" />
                         </group>
                     </group>
                     <notebook>
@@ -133,13 +133,13 @@
         <field name="name">trip.view.kanban</field>
         <field name="model">trip</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="status">
+            <kanban default_group_by="status" dragable="1">
                 <field name="trip_name"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="travel_mode"/>
                 <field name="trip_type"/>
-                <field name="budget"/>
+                <field name="expenditure"/>
                 <field name="status" invisible="1"/>
                 <templates>
                     <t t-name="kanban-box">
@@ -156,17 +156,17 @@
                             <div>
                             Travel Mode: <field name="travel_mode" />
                             <br/>
-                        </div>
-                        <div>
+                            </div>
+                            <div>
                             Trip Type: <field name="trip_type" />
-                        <br/>
-                            Budget: <field name="budget" />
-                    <br/>
-                </div>
-            </div>
-        </t>
-    </templates>
-</kanban>
-</field>
-</record>
+                            <br/>
+                            Expenditure: <field name="expenditure" />
+                            <br/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 </odoo>

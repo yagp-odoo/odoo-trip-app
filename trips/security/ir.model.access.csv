@@ -7,8 +7,6 @@ access_participant_user,access_trip_participant,model_trip_participant,base.grou
 access_participant_entry_user,access_trip_participant_entry,model_trip_participant_entry,base.group_user,1,1,1,1
 access_expense_user,access_trip_expense,model_trip_expense,base.group_user,1,1,1,1
 access_expense_category_user,access_trip_expense_category,model_trip_expense_category,base.group_user,1,1,1,1
-
+access_trip_tags_user,access_trip_tags,model_trip_tags,base.group_user,1,1,1,1
 
 trips.access_add_expense,access_add_expense_wizard,trips.model_add_expense_wizard,base.group_user,1,1,1,1
-
-

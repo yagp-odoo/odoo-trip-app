@@ -6,3 +6,4 @@ from . import trip_participant
 from . import trip_participant_entry
 from . import trip_expense_category
 from . import trip_expense
+from . import trip_tags

@@ -12,6 +12,7 @@
             <menuitem id='trip_locations' action='trip_location_action' />
             <menuitem id='oganizers' action='organizer_action' />
             <menuitem id='participants' action='participant_action' />
+            <menuitem id='trip_tags' action='trip_tags_action' />
         </menuitem>
     </menuitem>
 </odoo>

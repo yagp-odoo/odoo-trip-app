@@ -22,6 +22,8 @@
             <p> Add a new trip location using the "New" button.</p>
         </field>
     </record>
+
+    
     <record id="organizer_action" model="ir.actions.act_window">
         <field name="name">Organizers</field>
         <field name="res_model">organizer</field>
@@ -64,6 +66,17 @@
                 You haven't created any expense category yet!
             </p>
             <p> Create a new expense category using the "New" button.</p>
+        </field>
+    </record>
+    <record id="trip_tags_action" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">trip.tags</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Trip Tags Found!
+            </p>
+            <p> Create a new trip tag using the "New" button.</p>
         </field>
     </record>
     <record id="trip_expense_stat_action" model="ir.actions.act_window">
